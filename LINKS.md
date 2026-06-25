@@ -20,21 +20,29 @@ After logging in with `huggingface_hub.login()`, run the final cell to publish t
 ## LoRA Adapter
 
 r16 adapter:
-https://huggingface.co/bangbeo46/my-r16-adapter
+https://huggingface.co/bangbeo46/my-r16-adapter/
+lora adapter:
+https://huggingface.co/bangbeo46/my-lora-adapter/
 
 Without a personal HF token this submission should be graded as Option C. With the public adapter URL filled in, it qualifies for Option B bonus.
 
 ## Publish r16 Adapter
 
-Current status: local adapter files are ready in `adapters/r16/`, but this machine is not logged in to HuggingFace Hub yet.
+Current status: local adapter files and the filled model card README are ready in `adapters/r16/`, but this machine is not logged in to HuggingFace Hub yet.
 
 After logging in:
 
 ```powershell
 huggingface-cli login
-huggingface-cli upload <your-hf-username>/qwen2.5-3b-vi-lab21-r16 adapters/r16 . --repo-type model
+huggingface-cli upload bangbeo46/my-lora-adapter adapters/r16 . --repo-type model
 ```
 
-Then replace the placeholder below with the real public model URL:
+To update only the HuggingFace model card at `https://huggingface.co/bangbeo46/my-lora-adapter/edit/main/README.md`, run:
 
-`https://huggingface.co/bangbeo46/my-r16-adapter`
+```powershell
+huggingface-cli upload bangbeo46/my-lora-adapter adapters/r16/README.md README.md --repo-type model
+```
+
+Public model URL:
+`https://huggingface.co/bangbeo46/my-r16-adapter/`
+`https://huggingface.co/bangbeo46/my-lora-adapter`
